@@ -9,7 +9,6 @@ from django.template import RequestContext
 from django.shortcuts import render, render_to_response
 from .forms import UploadFileForm, TurmaCreationForm, AtividadeCreationForm
 from Aeacus import compare
-from Athena.models import Aluno
 from Athena.models import Turma
 from Athena.models import Atividade
 from Athena.models import Submissao
