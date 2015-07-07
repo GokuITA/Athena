@@ -259,9 +259,12 @@ def aluno(request):
 
 
 def aluno_ativ(request, ativ_id):
-    aluno = Aluno.objects.filter(user=request.user)
-    if request.user.is_authenticated() is False or not aluno:
+
+    aluno = checar_login_aluno(request)
+
+    if not aluno:
         return HttpResponseRedirect('/login')
+
     aluno = aluno[0]
 
     atividade = Atividade.objects.filter(id=ativ_id)
@@ -363,9 +366,12 @@ def aluno_ativ(request, ativ_id):
 
 
 def aluno_turmas(request):
-    aluno = Aluno.objects.filter(user=request.user)
-    if request.user.is_authenticated() is False or not aluno:
+
+    aluno = checar_login_aluno(request)
+
+    if not aluno:
         return HttpResponseRedirect('/login')
+
     aluno = aluno[0]
 
     if request.method == 'POST':
