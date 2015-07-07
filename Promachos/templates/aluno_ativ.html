@@ -37,6 +37,7 @@
           <div class="form-group">
             <input class="btn btn-default" type="submit" value="Submit">
           </div>
+          <p><b>Última submissão:</b> <a href="{{ submissao.arquivo_codigo.url }}" target="_blank">{{ submissao.nome_codigo }}</a></p>
         </form>
         {% if submissao and relAlunoAtividade %}
            {% if relAlunoAtividade.foiEntregue %}
@@ -45,6 +46,7 @@
                <p><b>Nota:</b> {{ submissao.nota }}</p>
                <p><b>Data limite:</b> {{ atividade.data_limite }}</p>
                <p><b>Último envio:</b> {{ submissao.data_envio }}</p>
+               <p><b>Erros:</b> {{ compilation_error|safe }}</p>
                 <!-- TABELA COMECA AQUI!!! -->
                 <table class="table">
                   <tr>
